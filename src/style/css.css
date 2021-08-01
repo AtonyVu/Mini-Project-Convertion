@@ -39,14 +39,19 @@
   font-family: "Poppins", sans-seri;
   font-size: 17px;
 }
+.C2F_container input:focus {
+  outline: none;
+}
 .C2F_container select {
   border-radius: 10px;
-  height: 30px;
+  height: 35px;
   font-weight: 600;
+  padding: 10px 8px;
 }
-
+.C2F_container select:focus {
+  outline: none;
+}
 .btn-convert div {
-  border: 1px solid black;
   margin-right: 20px;
   padding: 5px 10px;
   background-color: dodgerblue;
