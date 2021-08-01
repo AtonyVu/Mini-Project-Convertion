@@ -7,10 +7,10 @@ export default class Nav extends Component {
       <div className="Nav_container">
         <ul>
           <li>
-            <Link to="/">C2F</Link>
+            <Link to="/Mini-Project-Convertion">C2F</Link>
           </li>
           <li>
-            <Link to="/C2K">C2K</Link>
+            <Link to="/Mini-Project-Convertion/C2K">C2K</Link>
           </li>
         </ul>
       </div>
