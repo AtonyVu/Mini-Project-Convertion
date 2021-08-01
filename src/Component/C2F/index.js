@@ -18,24 +18,102 @@ export default class C2F extends Component {
     console.log(e.target.value);
     this.setState({ value: e.target.value });
   };
+  handleChangeOptionA = (e) => {
+    this.resetConvert();
+    switch (e.target.value) {
+      case "Celsius": {
+        this.setState({ unitA: "C", nameA: e.target.value });
+        break;
+      }
+      case "Fahrenheit": {
+        this.setState({ unitA: "F", nameA: e.target.value });
+        break;
+      }
+      case "Kelvin": {
+        this.setState({ unitA: "K", nameA: e.target.value });
+        break;
+      }
+
+      default:
+        break;
+    }
+    // this.setState({ value: e.target.value });
+  };
+  handleChangeOptionB = (e) => {
+    this.resetConvert();
+    switch (e.target.value) {
+      case "Celsius": {
+        this.setState({ unitB: "C", nameB: e.target.value });
+        break;
+      }
+      case "Fahrenheit": {
+        this.setState({ unitB: "F", nameB: e.target.value });
+        break;
+      }
+      case "Kelvin": {
+        this.setState({ unitB: "K", nameB: e.target.value });
+        break;
+      }
+
+      default:
+        break;
+    }
+    // this.setState({ value: e.target.value });
+  };
   submitConvert = () => {
     if (isNaN(this.state.value) || this.state.value === "") {
       alert("Nhập số vào bạn ehhhhh");
       this.setState({ value: "" });
     } else {
-      switch (this.state.modeConvert) {
-        case true:
-          this.setState({
-            result: this.state.value * (9 / 5) + 32,
-            Calculator: `${this.state.value}°C * (9/5) + 32`,
-          });
+      switch (this.state.unitA) {
+        case "C": {
+          if (this.state.unitB === "F") {
+            this.setState({
+              result: this.state.value * (9 / 5) + 32,
+            });
+          }
+          if (this.state.unitB === "K") {
+            this.setState({
+              result: parseInt(this.state.value) + 273.15,
+            });
+          }
+          if (this.state.unitB === "C") {
+            alert("Trùng đơn vị dòi bạn ehhh");
+          }
           break;
-        case false:
-          this.setState({
-            result: (this.state.value - 32) * (5 / 9),
-            Calculator: `(${this.state.value}°F- 32) * (5 / 9)`,
-          });
+        }
+        case "K": {
+          if (this.state.unitB === "C") {
+            this.setState({
+              result: parseInt(this.state.value) - 273.15,
+            });
+          }
+          if (this.state.unitB === "F") {
+            this.setState({
+              result: (parseInt(this.state.value) * 9) / 5 - 459.67,
+            });
+          }
+          if (this.state.unitB === "K") {
+            alert("Trùng đơn vị dòi bạn ehhh");
+          }
           break;
+        }
+        case "F": {
+          if (this.state.unitB === "C") {
+            this.setState({
+              result: (this.state.value - 32) * (5 / 9),
+            });
+          }
+          if (this.state.unitB === "K") {
+            this.setState({
+              result: (parseInt(this.state.value) + 459.67) * (5 / 9),
+            });
+          }
+          if (this.state.unitB === "F") {
+            alert("Trùng đơn vị dòi bạn ehhh");
+          }
+          break;
+        }
 
         default:
           break;
@@ -43,33 +121,31 @@ export default class C2F extends Component {
     }
   };
   SwapConvert = () => {
-    if (this.state.modeConvert) {
-      this.setState({
-        modeConvert: false,
-        nameA: "Fahrenheit",
-        nameB: "Celsius",
-        unitA: "F",
-        unitB: "C",
-      });
-    } else {
-      this.setState({
-        modeConvert: true,
-        nameA: "Celsius",
-        nameB: "Fahrenheit",
-        unitA: "C",
-        unitB: "F",
-      });
-    }
+    let nameAA = this.state.nameA;
+    let nameBB = this.state.nameB;
+    let unitAA = this.state.unitA;
+    let unitBB = this.state.unitB;
+    this.setState({
+      nameA: nameBB,
+      nameB: nameAA,
+      unitA: unitBB,
+      unitB: unitAA,
+    });
+
     this.resetConvert();
   };
   resetConvert = () => {
-    this.setState({ value: "", Calculator: "", result: "" });
+    this.setState({ value: "", result: "" });
   };
   render() {
     return (
       <div className="C2F_container">
         <div className="convert_from">
-          <label>{this.state.nameA}: </label>
+          <select onChange={this.handleChangeOptionA} value={this.state.nameA}>
+            <option>Celsius</option>
+            <option>Kelvin</option>
+            <option>Fahrenheit</option>
+          </select>
           <input
             onChange={this.handleOnChange}
             value={this.state.value}
@@ -78,14 +154,15 @@ export default class C2F extends Component {
         </div>
         <h4>TO</h4>
         <div>
-          <label>{this.state.nameB}: </label>
+          <select onChange={this.handleChangeOptionB} value={this.state.nameB}>
+            <option>Celsius</option>
+            <option>Kelvin</option>
+            <option>Fahrenheit</option>
+          </select>
           <input value={this.state.result} disabled></input>
           <label>{this.state.unitB} </label>
         </div>
-        <div>
-          <label>Calculation: </label>
-          <textarea value={this.state.Calculator} disabled></textarea>
-        </div>
+
         <div className="btn-convert">
           <div onClick={this.submitConvert}>Convert</div>
           <div onClick={this.resetConvert}>Reset</div>

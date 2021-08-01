@@ -4,10 +4,21 @@
 }
 
 .C2F_container {
-  background-color: aliceblue;
   padding: 10px 10px;
-  box-shadow: 1px 1px 5px 5px #888888;
-  border-radius: 10px;
+  margin-top: 30%;
+  transform: scale(1.1);
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  border-left: 2px solid rgba(255, 255, 255, 0.18);
+  border-top: 2px solid rgba(255, 255, 255, 0.18);
+}
+.C2F_container:hover {
+  transform: scale(1.2);
 }
 .C2F_container div {
   margin: 20px 0;
@@ -16,31 +27,29 @@
   width: 40%;
   height: 30px;
   margin-right: 10px;
-  box-shadow: 6px 10px 5px #aaaaaa;
-  border-radius: 5px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 10px;
   margin-left: 10px;
+  color: black;
+}
+.C2F_container select {
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 10px;
+  height: 30px;
+  font-weight: 600;
 }
 
-.convert_from input {
-  margin-left: 35px;
-}
-.C2F_container textarea {
-  width: 40%;
-  height: 40px;
-  margin-right: 10px;
-  box-shadow: 6px 10px 5px #aaaaaa;
-  border-radius: 5px;
-}
 .btn-convert div {
   border: 1px solid black;
   margin-right: 20px;
-  padding: 5px 5px;
+  padding: 5px 10px;
   background-color: #198754;
   color: white;
-  box-shadow: 6px 10px 5px #aaaaaa;
-  border-radius: 5px;
+  box-shadow: 6px 10px 5px #198754;
+  border-radius: 10px;
   cursor: pointer;
 }
+
 .btn-convert div:hover {
   opacity: 0.7;
 }
