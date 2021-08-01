@@ -9,8 +9,8 @@ function App() {
       <BrowserRouter>
         <Nav />
         <Switch>
-          <Route path="/" component={C2F} exact={true} />
-          <Route path="/C2K" component={C2K} />
+          <Route path="/Mini-Project-Convertion" component={C2F} exact={true} />
+          <Route path="/Mini-Project-Convertion/C2K" component={C2K} />
           <Route path="" component={PageNotFound} />
         </Switch>
       </BrowserRouter>
