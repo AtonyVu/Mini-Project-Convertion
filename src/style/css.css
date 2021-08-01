@@ -1,0 +1,64 @@
+.btn-convert {
+  display: flex;
+  justify-content: center;
+}
+
+.C2F_container {
+  background-color: aliceblue;
+  padding: 10px 10px;
+  box-shadow: 1px 1px 5px 5px #888888;
+  border-radius: 10px;
+}
+.C2F_container div {
+  margin: 20px 0;
+}
+.C2F_container input {
+  width: 40%;
+  height: 30px;
+  margin-right: 10px;
+  box-shadow: 6px 10px 5px #aaaaaa;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.convert_from input {
+  margin-left: 35px;
+}
+.C2F_container textarea {
+  width: 40%;
+  height: 40px;
+  margin-right: 10px;
+  box-shadow: 6px 10px 5px #aaaaaa;
+  border-radius: 5px;
+}
+.btn-convert div {
+  border: 1px solid black;
+  margin-right: 20px;
+  padding: 5px 5px;
+  background-color: #198754;
+  color: white;
+  box-shadow: 6px 10px 5px #aaaaaa;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-convert div:hover {
+  opacity: 0.7;
+}
+.Nav_container {
+  background-color: rgba(133, 234, 153, 0.5);
+  box-shadow: 1px 1px 5px 5px #888888;
+  border-radius: 10px;
+}
+.Nav_container ul {
+  display: flex;
+  list-style: none;
+  padding: 10px 10px;
+  justify-content: space-around;
+  align-items: center;
+}
+.Nav_container ul li a {
+  text-decoration: none;
+}
+.Nav_container ul li a:hover {
+  text-decoration: underline;
+}

@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import C2F from "./Component/C2F/index";
+import C2K from "./Component/C2K";
+import PageNotFound from "./Component/PageNotFound";
+import Nav from "./Component/Nav";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Nav />
+        <Switch>
+          <Route path="/" component={C2F} exact={true} />
+          <Route path="/C2K" component={C2K} />
+          <Route path="" component={PageNotFound} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
