@@ -120,20 +120,6 @@ export default class C2F extends Component {
       }
     }
   };
-  SwapConvert = () => {
-    let nameAA = this.state.nameA;
-    let nameBB = this.state.nameB;
-    let unitAA = this.state.unitA;
-    let unitBB = this.state.unitB;
-    this.setState({
-      nameA: nameBB,
-      nameB: nameAA,
-      unitA: unitBB,
-      unitB: unitAA,
-    });
-
-    this.resetConvert();
-  };
   resetConvert = () => {
     this.setState({ value: "", result: "" });
   };
@@ -152,7 +138,7 @@ export default class C2F extends Component {
           ></input>
           <label>{this.state.unitA} </label>
         </div>
-        <h4>TO</h4>
+        <h4 className="labelTo">TO</h4>
         <div>
           <select onChange={this.handleChangeOptionB} value={this.state.nameB}>
             <option>Celsius</option>
@@ -166,7 +152,6 @@ export default class C2F extends Component {
         <div className="btn-convert">
           <div onClick={this.submitConvert}>Convert</div>
           <div onClick={this.resetConvert}>Reset</div>
-          <div onClick={this.SwapConvert}>Swap</div>
         </div>
       </div>
     );
